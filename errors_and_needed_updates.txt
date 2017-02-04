@@ -1,0 +1,10 @@
+app.py:2: ExtDeprecationWarning: Importing flask.ext.login is deprecated, use flask_login instead.
+  from flask.ext.login import LoginManager
+/home/mike-del/Projects/Treehouse/flask_track/social_network/code/models.py:3: 
+
+ExtDeprecationWarning: Importing flask.ext.bcrypt is deprecated, use flask_bcrypt instead.
+  from flask.ext.bcrypt import generate_password_hash
+
+
+ FlaskWTFDeprecationWarning: "flask_wtf.Form" has been renamed to "FlaskForm" and will be removed in 1.0.
+  form = forms.LoginForm()
