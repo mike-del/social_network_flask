@@ -1,7 +1,7 @@
 import datetime
 
 from flask.ext.bcrypt import generate_password_hash
-from flask.ext.login import UserMixin
+from flask.ext.login import UserMixin, AnonymousUserMixin
 from peewee import *
 
 DATABASE = SqliteDatabase('social.db')
@@ -57,6 +57,11 @@ class User(UserMixin, Model):
                     is_admin=admin)
         except IntegrityError:
             raise ValueError('User already exists')
+
+class Anonymous(AnonymousUserMixin):
+  def __init__(self):
+    self.username = 'Guest'
+
 
  
 class Post(Model):

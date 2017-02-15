@@ -17,6 +17,7 @@ app.secret_key = '>^p<,i.oh5.ugLD%OK@!F?.*+88DE_-R34f4w||FDPel8253400098T'
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+login_manager.anonymous_user = models.Anonymous
 
 @login_manager.user_loader
 def load_user(userid):
@@ -115,6 +116,9 @@ def stream(username=None):
             abort(404)
         else:
             stream = user.posts.limit(100)
+    elif current_user.username == 'Guest':
+        flash('Please login in to see your stream!', 'error')
+        return redirect(url_for('index'))
     else:
         stream = current_user.get_stream().limit(100)
         user = current_user
