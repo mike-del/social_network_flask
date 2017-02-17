@@ -7,7 +7,7 @@
 			<a href="{{ url_for('stream', username=post.user.username) }}">{{ post.user.username }}</a>
 		</h2>
 
-<!-- data-time="{{ post.timestamp.timestamp() }}" 
+<!-- data-time="{{ post.timestamp . timestamp () }}" 
 removed for heroku-->
 		<i class="clock"></i><time data-time="" class="distime" datetime="{{ post.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}" >{{ post.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</time>
 		<a href="{{ url_for('view_post', post_id=post.id) }}" class="view">View</a>
@@ -17,4 +17,3 @@ removed for heroku-->
 	</article>
 {% endfor %}
 {% endblock %}
-mod_time.mktime(timestamp.timetuple()) + timestamp.microsecond / 1e6
